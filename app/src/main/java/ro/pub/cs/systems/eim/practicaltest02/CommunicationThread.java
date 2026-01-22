@@ -60,7 +60,7 @@ public class CommunicationThread extends Thread {
             if (httpGetEntity != null) {
                 pageSourceCode = EntityUtils.toString(httpGetEntity);
             }
-
+            int i = 0;
             JSONObject content = new JSONObject(pageSourceCode);
             JSONArray anagrams_array = content.getJSONArray("all");
 
@@ -68,7 +68,7 @@ public class CommunicationThread extends Thread {
 
             String [] tokens = result.split(",");
             String tokens_result = "";
-            for (int i = 0; i < tokens.length; ++i) {
+            for (; i < tokens.length; ++i) {
                 Log.i(Constants.TAG, "Token " + i + tokens[i]);
                 if (tokens[i].length()  - 2 >= Integer.parseInt(minLetters)) {
                     tokens_result += " | " + tokens[i];
