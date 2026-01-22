@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "ro.pub.cs.systems.eim.practicaltest02"
-        minSdk = 16
+        minSdk = 21
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -41,4 +41,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("cz.msebera.android:httpclient:4.4.1.2")
+    implementation("org.jsoup:jsoup:1.10.2")
 }
