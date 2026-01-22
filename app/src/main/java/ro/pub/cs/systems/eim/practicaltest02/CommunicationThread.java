@@ -65,7 +65,16 @@ public class CommunicationThread extends Thread {
             JSONArray anagrams_array = content.getJSONArray("all");
 
             String result = anagrams_array.toString();
-            printWriter.println(result);
+
+            String [] tokens = result.split(",");
+            String tokens_result = "";
+            for (int i = 0; i < tokens.length; ++i) {
+                Log.i(Constants.TAG, "Token " + i + tokens[i]);
+                if (tokens[i].length()  - 2 >= Integer.parseInt(minLetters)) {
+                    tokens_result += " | " + tokens[i];
+                }
+            }
+            printWriter.println(tokens_result);
             printWriter.flush();
         } catch (IOException | JSONException e) {
             Log.e(Constants.TAG, "[COMMUNICATION THREAD]: Exception message: " + e.getMessage());
